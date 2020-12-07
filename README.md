@@ -1,0 +1,1 @@
+# Ansible role for nginx installation
