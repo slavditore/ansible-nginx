@@ -1,0 +1,21 @@
+- name: Add nginx APT key
+  apt_key:
+    url: https://nginx.org/keys/nginx_signing.key
+    state: present
+
+- name: Add nginx APT repo
+  apt_repository:
+    repo: deb https://nginx.org/packages/mainline/ubuntu/ {{ansible_lsb['codename']}} stable
+    state: present
+
+- name: Install nginx
+  apt:
+    update_cache: true
+    name: nginx
+    state: present
+
+- name: Start service
+  systemd:
+    name: nginx
+    state: started
+    enabled: true
