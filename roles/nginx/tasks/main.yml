@@ -1,0 +1,8 @@
+- name: Install nginx (Ubuntu)
+  include: ubuntu-nginx.yml
+  when: ansible_distribution == "Ubuntu"
+
+# TODO: Add playbook for CentOS
+# - name: Install nginx (CentOS)
+#   include: centos-nginx.yml
+#   when: ansible_distribution == "CentOS" 
